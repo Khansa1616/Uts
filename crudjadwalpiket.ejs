@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CRUD Jadwal Piket</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Data Jadwal Piket</h1>
+    </header>
+    <div class="container">
+      <h2>Daftar Jadwal Piket</h2>
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Hari</th>
+          <th>Guru</th>
+          <th>Aksi</th>
+        </tr>
+        <% jadwal.forEach(jadwal => { %>
+        <tr>
+          <td><%= jadwal.id %></td>
+          <td><%= jadwal.hari %></td>
+          <td><%= jadwal.guru_nama %></td>
+          <td>
+            <a href="/edit-jadwal-piket/<%= jadwal.id %>">Edit</a>
+            <a href="/delete-jadwal-piket/<%= jadwal.id %>">Delete</a>
+          </td>
+        </tr>
+        <% }); %>
+      </table>
+      <h3>Tambah Jadwal Piket</h3>
+      <form action="/add-jadwal-piket" method="POST">
+        <input type="text" name="hari" placeholder="Hari" required />
+        <select name="guru_id" required>
+          <option value="">Pilih Guru</option>
+          <% gurus.forEach(guru => { %>
+          <option value="<%= guru.id %>"><%= guru.nama %></option>
+          <% }); %>
+        </select>
+        <button type="submit">Tambah</button>
+      </form>
+    </div>
+  </body>
+</html>

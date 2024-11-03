@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CRUD Guru</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Data Guru</h1>
+    </header>
+    <div class="container">
+      <h2>Daftar Guru</h2>
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Nama</th>
+          <th>Mata Pelajaran</th>
+          <th>Aksi</th>
+        </tr>
+        <% gurus.forEach(guru => { %>
+        <tr>
+          <td><%= guru.id %></td>
+          <td><%= guru.nama %></td>
+          <td><%= guru.mata_pelajaran %></td>
+          <td>
+            <a href="/edit-guru/<%= guru.id %>">Edit</a>
+            <a href="/delete-guru/<%= guru.id %>">Delete</a>
+          </td>
+        </tr>
+        <% }); %>
+      </table>
+      <h3>Tambah Guru</h3>
+      <form action="/add-guru" method="POST">
+        <input type="text" name="nama" placeholder="Nama" required />
+        <input
+          type="text"
+          name="mata_pelajaran"
+          placeholder="Mata Pelajaran"
+          required
+        />
+        <button type="submit">Tambah</button>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Jadwal Piket</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<header>
+    <h1>Edit Jadwal Piket</h1>
+</header>
+<div class="container">
+    <form action="/edit-jadwal-piket/<%= jadwal.id %>" method="POST">
+        <input type="text" name="hari" value="<%= jadwal.hari %>" required>
+        <select name="guru_id" required>
+            <option value="">Pilih Guru</option>
+            <% gurus.forEach(guru => { %>
+                <option value="<%= guru.id %>" <%= guru.id === jadwal.guru_id ? 'selected' : '' %>><%= guru.nama %></option>
+            <% }); %>
+        </select>
+        <button type="submit">Simpan</button>
+    </form>
+</div>
+</body>
+</html>

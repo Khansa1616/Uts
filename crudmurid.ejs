@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CRUD Murid</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Data Murid</h1>
+    </header>
+    <div class="container">
+      <h2>Daftar Murid</h2>
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Nama</th>
+          <th>Kelas</th>
+          <th>Aksi</th>
+        </tr>
+        <% murids.forEach(murid => { %>
+        <tr>
+          <td><%= murid.id %></td>
+          <td><%= murid.nama %></td>
+          <td><%= murid.kelas %></td>
+          <td>
+            <a href="/edit-murid/<%= murid.id %>">Edit</a>
+            <a href="/delete-murid/<%= murid.id %>">Delete</a>
+          </td>
+        </tr>
+        <% }); %>
+      </table>
+      <h3>Tambah Murid</h3>
+      <form action="/add-murid" method="POST">
+        <input type="text" name="nama" placeholder="Nama" required />
+        <input type="text" name="kelas" placeholder="Kelas" required />
+        <button type="submit">Tambah</button>
+      </form>
+    </div>
+  </body>
+</html>

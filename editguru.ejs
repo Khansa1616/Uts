@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Edit Guru</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Edit Guru</h1>
+    </header>
+    <div class="container">
+      <form action="/edit-guru/<%= guru.id %>" method="POST">
+        <input type="text" name="nama" value="<%= guru.nama %>" required />
+        <input
+          type="text"
+          name="mata_pelajaran"
+          value="<%= guru.mata_pelajaran %>"
+          required
+        />
+        <button type="submit">Simpan</button>
+      </form>
+    </div>
+  </body>
+</html>

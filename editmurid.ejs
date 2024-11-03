@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Edit Murid</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Edit Murid</h1>
+    </header>
+    <div class="container">
+      <form action="/edit-murid/<%= murid.id %>" method="POST">
+        <input type="text" name="nama" value="<%= murid.nama %>" required />
+        <input type="text" name="kelas" value="<%= murid.kelas %>" required />
+        <button type="submit">Simpan</button>
+      </form>
+    </div>
+  </body>
+</html>
